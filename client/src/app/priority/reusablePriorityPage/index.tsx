@@ -8,7 +8,6 @@ import { dataGridClassNames, dataGridSxStyles } from "@/lib/utils";
 import {
   Priority,
   Task,
-  useGetAuthUserQuery,
   useGetTasksByUserQuery,
 } from "@/state/api";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
@@ -77,8 +76,7 @@ const ReusablePriorityPage = ({ priority }: Props) => {
   const [view, setView] = useState("list");
   const [isModalNewTaskOpen, setIsModalNewTaskOpen] = useState(false);
 
-  const { data: currentUser } = useGetAuthUserQuery({});
-  const userId = currentUser?.userDetails?.userId ?? null;
+  const userId = 1;
   const {
     data: tasks,
     isLoading,
@@ -94,6 +92,10 @@ const ReusablePriorityPage = ({ priority }: Props) => {
   );
 
   if (isTasksError || !tasks) return <div>Error fetching tasks</div>;
+
+  // Extracted ternary operation into variables
+  const listButtonClass = view === "list" ? "bg-gray-300" : "bg-white";
+  const tableButtonClass = view === "table" ? "bg-gray-300" : "bg-white";
 
   return (
     <div className="m-5 p-4">
@@ -114,17 +116,13 @@ const ReusablePriorityPage = ({ priority }: Props) => {
       />
       <div className="mb-4 flex justify-start">
         <button
-          className={`px-4 py-2 ${
-            view === "list" ? "bg-gray-300" : "bg-white"
-          } rounded-l`}
+          className={`px-4 py-2 ${listButtonClass} rounded-l`}
           onClick={() => setView("list")}
         >
           List
         </button>
         <button
-          className={`px-4 py-2 ${
-            view === "table" ? "bg-gray-300" : "bg-white"
-          } rounded-l`}
+          className={`px-4 py-2 ${tableButtonClass} rounded-l`}
           onClick={() => setView("table")}
         >
           Table
