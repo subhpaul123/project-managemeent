@@ -9,6 +9,7 @@ This is a full-stack project management application built with Next.js for the c
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Getting Started](#getting-started)
+- [Environment Variables Setup](#environment-variables-setup)
 - [Client Side](#client-side)
 - [Server Side](#server-side)
 - [Deployment](#deployment)
@@ -47,8 +48,8 @@ To get started with this project, follow these steps:
 1.  **Clone the Repository**:
 
     ```bash
-    git clone https://github.com/subhpaul123/project-managemeent.git
-    cd project-management_o
+    git clone [https://github.com/subhpaul123/project-managemeent.git](https://github.com/subhpaul123/project-managemeent.git)
+    cd project-managemeent
     ```
 
 2.  **Install Dependencies**:
@@ -58,6 +59,31 @@ To get started with this project, follow these steps:
     ```bash
     npm install
     ```
+
+## Environment Variables Setup
+
+Before running the application, you need to set up environment variables for both the client and server.
+
+**Client Side (`client/.env`)**:
+
+Create a `.env` file in the `client` directory and add the following variables:
+
+* `NEXT_PUBLIC_API_BASE_URL=http://localhost:8000`
+* `NEXT_PUBLIC_COGNITO_USER_POOL_ID="your user pool id here"`
+* `NEXT_PUBLIC_COGNITO_USER_POOL_CLIENT_ID="your client id here"`
+
+
+
+Replace `"your user pool id here"` and `"your client id here"` with your actual AWS Cognito User Pool ID and Client ID.
+
+**Server Side (`server/.env`)**:
+
+Create a `.env` file in the `server` directory and add the following variables:
+
+* `PORT=8000`
+* `DATABASE_URL="your database url here"`
+
+Replace `"your database url here"` with your actual PostgreSQL database URL.
 
 ## Client Side
 
@@ -78,7 +104,7 @@ cd server
 npm run dev
 ```
 
-The server will run on http://localhost:3001 (or the port specified in your environment variables).
+The server will run on http://localhost:8000 (or the port specified in your .env file).
 
 ### Deployment
 The application is deployed using AWS Amplify, which provides a seamless CI/CD pipeline for the frontend. The backend is hosted on AWS EC2, and the database is hosted on AWS RDS, ensuring scalability and reliability.
