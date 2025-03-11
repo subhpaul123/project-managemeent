@@ -1,7 +1,6 @@
-
 # Project Management Application
-![Project Management Application Logo](https://pm-s3-images1234.s3.eu-north-1.amazonaws.com/Screenshot+2025-03-11+at+4.45.01%E2%80%AFPM.png)
 
+![Project Management Application Logo](https://pm-s3-images1234.s3.eu-north-1.amazonaws.com/Screenshot+2025-03-11+at+4.45.01%E2%80%AFPM.png)
 
 This is a full-stack project management application built with Next.js for the client side and Express.js for the server side. The application utilizes AWS services for authentication, storage, and deployment.
 
@@ -34,11 +33,12 @@ This is a full-stack project management application built with Next.js for the c
     -   Node.js
     -   Express.js
     -   Prisma ORM
-    -   PostgreSQL
+    -   PostgreSQL (hosted on AWS RDS)
 -   **AWS Services**:
     -   AWS Cognito for authentication
     -   AWS S3 for image storage
     -   AWS EC2 for hosting the server
+    -   AWS RDS for database hosting.
 
 ## Getting Started
 
@@ -47,7 +47,7 @@ To get started with this project, follow these steps:
 1.  **Clone the Repository**:
 
     ```bash
-    git clone <your-repo-url>
+    git clone https://github.com/subhpaul123/project-managemeent.git
     cd project-management_o
     ```
 
@@ -70,7 +70,7 @@ npm run dev
 
 Open your browser and go to http://localhost:3000 to view the application.
 
-## Server Side
+### Server Side
 To run the server side of the application, navigate to the server directory and start the development server:
 
 ```bash
@@ -81,7 +81,7 @@ npm run dev
 The server will run on http://localhost:3001 (or the port specified in your environment variables).
 
 ### Deployment
-The application is deployed using AWS Amplify, which provides a seamless CI/CD pipeline for the frontend. The backend is hosted on AWS EC2, ensuring scalability and reliability.
+The application is deployed using AWS Amplify, which provides a seamless CI/CD pipeline for the frontend. The backend is hosted on AWS EC2, and the database is hosted on AWS RDS, ensuring scalability and reliability.
 
 ### Conclusion
 This project management application is designed to help teams manage their projects efficiently. With features like user authentication, drag-and-drop task management, and real-time updates, it provides a robust solution for project management needs.
