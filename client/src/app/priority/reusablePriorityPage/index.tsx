@@ -78,7 +78,8 @@ const ReusablePriorityPage = ({ priority }: Props) => {
   const [isModalNewTaskOpen, setIsModalNewTaskOpen] = useState(false);
 
   const { data: currentUser } = useGetAuthUserQuery({});
-  const userId = currentUser?.userDetails?.userId ?? null;
+  // const userId = currentUser?.userDetails?.userId ?? null;
+  const userId = currentUser?.user?.userId;
   const {
     data: tasks,
     isLoading,
